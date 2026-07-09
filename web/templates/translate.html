@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Live ASL Translation - Webcam-based sign language recognition">
+    <title>Translate | ASL Translator</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body class="translate-page">
+
+    <!-- Header -->
+    <header class="app-header">
+        <a href="/" class="header-logo">
+            <span class="logo-icon">&#9995;</span>
+            <span>ASL Translator</span>
+        </a>
+        <div class="header-status">
+            <span class="status-dot" id="status-dot"></span>
+            <span class="status-text" id="status-text">Connecting...</span>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="translate-main">
+
+        <!-- Left: Webcam Feed -->
+        <section class="webcam-section">
+            <div class="webcam-container" id="webcam-container">
+                <video id="webcam" autoplay playsinline muted></video>
+                <canvas id="overlay" class="webcam-overlay"></canvas>
+
+                <!-- Prediction Badge -->
+                <div class="prediction-badge" id="prediction-badge">
+                    <span class="pred-letter" id="pred-letter">?</span>
+                    <span class="pred-confidence" id="pred-confidence">0%</span>
+                </div>
+
+                <!-- FPS Counter -->
+                <div class="fps-counter" id="fps-counter">-- fps</div>
+
+                <!-- No Hand Indicator -->
+                <div class="no-hand-overlay" id="no-hand-overlay">
+                    <p>Show your hand to the camera</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Right: Translation Panel -->
+        <section class="translation-section">
+
+            <!-- Current Letter -->
+            <div class="panel current-letter-panel">
+                <h2 class="panel-title">Detected Letter</h2>
+                <div class="big-letter" id="big-letter">?</div>
+                <div class="confidence-bar-container">
+                    <div class="confidence-bar" id="confidence-bar"></div>
+                </div>
+                <p class="confidence-label" id="confidence-label">Confidence: 0%</p>
+            </div>
+
+            <!-- Hold Progress -->
+            <div class="panel hold-panel" id="hold-panel" style="display:none;">
+                <h2 class="panel-title">Hold to Confirm</h2>
+                <div class="hold-bar-container">
+                    <div class="hold-bar" id="hold-bar"></div>
+                </div>
+                <p class="hold-label" id="hold-label">0%</p>
+            </div>
+
+            <!-- Word Builder -->
+            <div class="panel word-panel">
+                <h2 class="panel-title">Current Word</h2>
+                <div class="word-display" id="word-display">
+                    <span class="word-text" id="word-text"></span>
+                    <span class="cursor-blink">|</span>
+                </div>
+            </div>
+
+            <!-- Translation History -->
+            <div class="panel history-panel">
+                <h2 class="panel-title">Translation</h2>
+                <div class="history-text" id="history-text"></div>
+            </div>
+
+            <!-- Controls -->
+            <div class="controls-row">
+                <button class="control-btn" id="btn-speak" title="Speak current word">
+                    <span>&#128266;</span> Speak
+                </button>
+                <button class="control-btn" id="btn-clear" title="Clear current word">
+                    <span>&#10060;</span> Clear
+                </button>
+                <button class="control-btn" id="btn-backspace" title="Delete last letter">
+                    <span>&#9003;</span> Delete
+                </button>
+                <button class="control-btn" id="btn-reset" title="Reset everything">
+                    <span>&#128260;</span> Reset
+                </button>
+                <button class="control-btn toggle-btn" id="btn-tts-toggle" title="Toggle TTS">
+                    <span>&#128264;</span> TTS: ON
+                </button>
+            </div>
+
+        </section>
+    </main>
+
+    <!-- Gesture Banner -->
+    <div class="gesture-banner" id="gesture-banner" style="display:none;">
+        <span class="gesture-text" id="gesture-text"></span>
+    </div>
+
+    <script src="/static/js/translator.js"></script>
+</body>
+</html>

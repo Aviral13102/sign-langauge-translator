@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Real-time Sign Language Translator - Translate ASL gestures to text and speech using AI">
+    <title>ASL Sign Language Translator</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body class="landing-page">
+    <div class="particles" id="particles"></div>
+
+    <header class="landing-header">
+        <div class="logo">
+            <span class="logo-icon">&#9995;</span>
+            <span class="logo-text">ASL Translator</span>
+        </div>
+    </header>
+
+    <main class="landing-main">
+        <div class="hero">
+            <h1 class="hero-title">
+                <span class="gradient-text">Real-time Sign Language</span>
+                <br>Translator
+            </h1>
+            <p class="hero-subtitle">
+                Translate American Sign Language gestures to text and speech instantly
+                using computer vision and machine learning.
+            </p>
+
+            <a href="/translate" class="cta-button" id="start-btn">
+                <span class="cta-icon">&#9654;</span>
+                Start Translating
+            </a>
+        </div>
+
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon">&#9997;</div>
+                <h3>Static Letters</h3>
+                <p>Recognizes all 26 ASL alphabet letters with 97.3% accuracy using an MLP classifier.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">&#128075;</div>
+                <h3>Dynamic Gestures</h3>
+                <p>Detects 10 common signs like Hello, Thank You, and Yes using LSTM sequence analysis.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">&#128172;</div>
+                <h3>Word Builder</h3>
+                <p>Assembles fingerspelled letters into words with smart smoothing and hold-to-confirm.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">&#128266;</div>
+                <h3>Text-to-Speech</h3>
+                <p>Speaks translated words aloud using browser-native speech synthesis.</p>
+            </div>
+        </div>
+
+        <div class="tech-badges">
+            <span class="badge">Python</span>
+            <span class="badge">MediaPipe</span>
+            <span class="badge">OpenCV</span>
+            <span class="badge">scikit-learn</span>
+            <span class="badge">PyTorch</span>
+            <span class="badge">Flask</span>
+        </div>
+    </main>
+
+    <footer class="landing-footer">
+        <p>CBS3006 Machine Learning &mdash; Aviral Singh (23BBS0156)</p>
+    </footer>
+
+    <script>
+        // Floating particles animation
+        const container = document.getElementById('particles');
+        for (let i = 0; i < 30; i++) {
+            const particle = document.createElement('div');
+            particle.className = 'particle';
+            particle.style.left = Math.random() * 100 + '%';
+            particle.style.animationDelay = Math.random() * 8 + 's';
+            particle.style.animationDuration = (8 + Math.random() * 12) + 's';
+            particle.style.width = particle.style.height = (2 + Math.random() * 4) + 'px';
+            container.appendChild(particle);
+        }
+    </script>
+</body>
+</html>

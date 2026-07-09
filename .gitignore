@@ -1,0 +1,29 @@
+# Virtual Environments
+.venv/
+venv/
+env/
+
+# Python Cache
+__pycache__/
+*.pyc
+*.pyo
+
+# Models and Data
+data/raw/
+data/landmarks/
+data/custom/
+data/sequences/
+models/*.joblib
+models/*.pt
+models/*.keras
+models/*.h5
+models/*.task
+models/plots/
+
+# Logs and Env
+*.log
+.env
+.DS_Store
+
+# Temp files
+*.npy
