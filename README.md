@@ -180,4 +180,4 @@ sign-language-translator/
 
 ## 🎓 Credits
 
-Developed by **Aviral Singh (23BBS0156)** for CBS3006 Machine Learning.
+Developed by **Aviral Singh**
